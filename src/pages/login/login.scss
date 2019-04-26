@@ -1,0 +1,63 @@
+page-login {
+
+  $BACK_TOP: #3091b7;
+  $BACK_BOTTOM: #2e7399;
+  $BACK_TRANSPARENCY: rgba(255,255,255,0.4);
+
+  .scroll-content {
+    background: -webkit-gradient(linear, left top, left bottom, $BACK_TOP, $BACK_BOTTOM);
+    background: -o-linear-gradient(linear, left top, left bottom, $BACK_TOP, $BACK_BOTTOM);
+    background: -moz-linear-gradient(linear, left top, left bottom, $BACK_TOP, $BACK_BOTTOM);
+    background: linear-gradient(to bottom, $BACK_TOP, $BACK_BOTTOM);
+    background-repeat: repeat-x;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .titulo {
+    font-size: 2em;
+    color: #ffffff;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  ion-item {
+    border-radius: 30px !important;
+    padding-left: 10px !important;
+    background-color: #f6f6f6;
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+
+  ion-list {
+    margin: 0;
+  }
+
+  .login-button {
+    width: 100%;
+    border-radius: 30px;
+    font-size: 1.2em;
+    border: 1px solid #fff;
+    background-color: #39acdc;
+  }
+
+  .imglogin {
+    max-height: 80px;
+    max-width: 80px;
+  }
+}
+
+
+
+
+
+

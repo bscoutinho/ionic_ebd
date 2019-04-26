@@ -1,0 +1,268 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span text-color="colortitle">Relatório</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="dtaRelatorio" name="dtaRelatorio">
+  </form>
+
+  <ion-card   style="border-radius: 10px; background-color: #F5F5F5">
+    <ion-card-header no-padding>
+      <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear small color="primary" [disabled]="!validateForm.form.valid" (click)="pickDtaFinal()" icon-start>
+            <ion-icon name='search' style="font-size: 30px"></ion-icon>
+            Pesquisar
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="primary" (click)="removeSelection()" icon-start>
+            <ion-icon name='share-alt' style="font-size: 30px"></ion-icon>
+            Limpar
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content no-padding>
+      <ion-list>
+        <ion-item>
+          <ion-label><ion-icon name='calendar' item-start style="color: #3091b7; font-size: 20px" no-padding></ion-icon>Selecione o ano:</ion-label>
+          <ion-datetime displayFormat="YYYY" doneText="Incluir" cancelText="Cancelar" [(ngModel)]="dtaRelatorio"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-slides pager class="swiper-slide">
+
+    <ion-slide>
+      <h4>Janeiro. Total: {{somaTotalJan}}</h4>
+      <ion-card  style="border-radius: 10px">
+
+        <ion-card-content *ngFor="let item of totalJan" class="card-content-ebd-md">
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <ion-item no-padding>
+                <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+                <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+                <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Fevereiro. Total: {{somaTotalFev}}</h4>
+
+      <ion-card-content *ngFor="let item of totalFev" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Março. Total: {{somaTotalMar}}</h4>
+
+      <ion-card-content *ngFor="let item of totalMar" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Abril. Total: {{somaTotalAbr}}</h4>
+
+      <ion-card-content *ngFor="let item of totalAbr" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Maio. Total: {{somaTotalMai}}</h4>
+
+      <ion-card-content *ngFor="let item of totalMai" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Junho. Total: {{somaTotalJun}}</h4>
+
+      <ion-card-content *ngFor="let item of totalJun" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Julho. Total: {{somaTotalJul}}</h4>
+
+      <ion-card-content *ngFor="let item of totalJul" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Agosto. Total: {{somaTotalAgo}}</h4>
+      <ion-card  style="border-radius: 10px">
+
+        <ion-card-content *ngFor="let item of totalAgo" class="card-content-ebd-md">
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <ion-item no-padding>
+                <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+                <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+                <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Setembro. Total: {{somaTotalSet}}</h4>
+
+      <ion-card-content *ngFor="let item of totalSet" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Outubro. Total: {{somaTotalOut}}</h4>
+
+      <ion-card-content *ngFor="let item of totalOut" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Novembro. Total: {{somaTotalNov}}</h4>
+
+      <ion-card-content *ngFor="let item of totalNov" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h4>Dezembro. Total: {{somaTotalDez}}</h4>
+
+      <ion-card-content *ngFor="let item of totalDez" class="card-content-ebd-md">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-item no-padding>
+              <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+              <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+              <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

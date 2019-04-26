@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Criar nova aula</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="dtaAula" name="data">
+    <input type="text" required [(ngModel)]="aula.classe" name="classe">
+    <input type="text" required [(ngModel)]="aula.professor" name="professor">
+    <input type="text" required [(ngModel)]="aula.qtde" name="qtde">
+    <input type="text" required [(ngModel)]="aula.apostila" name="apostila">
+    <input type="text" required [(ngModel)]="aula.licao" name="licao">
+  </form>
+
+    <ion-card class="item-background" >
+      <ion-item>
+        <ion-label><ion-icon name='calendar' item-start style="color: #3091b7; font-size: 20px" no-padding></ion-icon>Data:</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" doneText="Incluir" cancelText="Cancelar" [(ngModel)]="dtaAula"
+                      monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"></ion-datetime>
+      </ion-item>
+    </ion-card>
+    <ion-card class="item-background">
+      <ion-item >
+        <ion-label><ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 20px"></ion-icon>Classe:</ion-label>
+        <ion-select [(ngModel)]=aula.classe>
+          <ion-option *ngFor="let classe of classes | async" [value]="classe.descricao">{{classe.descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+    <ion-card class="item-background">
+      <ion-item >
+        <ion-label><ion-icon name='person' item-start style="color: #3091b7; font-size: 20px"></ion-icon>Professor:</ion-label>
+        <ion-select [(ngModel)]=aula.professor>
+          <ion-option *ngFor="let professor of professores | async" [value]="professor.nome">{{professor.nome}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+    <ion-card class="item-background">
+        <ion-item >
+          <ion-label><ion-icon name='clipboard' item-start style="color: #3091b7;"></ion-icon>Alunos:</ion-label>
+          <ion-input type="number" [(ngModel)]="aula.qtde"></ion-input>
+        </ion-item>
+    </ion-card>
+    <ion-card class="item-background">
+      <ion-item >
+        <ion-label><ion-icon name='albums' item-start style="color: #3091b7;"></ion-icon>Apostila:</ion-label>
+        <ion-input type="text" [(ngModel)]="aula.apostila"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card class="item-background">
+      <ion-item >
+        <ion-label><ion-icon name='bookmark' item-start style="color: #3091b7;"></ion-icon>Lição:</ion-label>
+        <ion-input type="number" [(ngModel)]="aula.licao"></ion-input>
+      </ion-item>
+    </ion-card>
+
+  <!--</ion-list>-->
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled]="!validateForm.form.valid" (click)="salvarAula(); showToast('top', 'Aula criada')"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span text-color="colortitle">Professores</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding text-center>
+    <ion-spinner *ngIf="!pronto"></ion-spinner>
+  </div>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let professor of professores | async" (click)="detalhe(professor)">
+      <ion-card style="border-radius: 30px">
+        <ion-item >
+          <ion-icon name='person' item-start style="color: #3091b7; font-size: 20px"></ion-icon>
+          <h2>{{professor.nome}}</h2>
+        </ion-item>
+      </ion-card>
+    </button>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="adicionarProfessor()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span text-color="colortitle">Relatório</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div padding text-center>
+    <h4>Relatório de quantidade de alunos por mês</h4>
+    <ion-spinner *ngIf="!pronto"></ion-spinner>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="dtaRelatorio" name="dtaRelatorio">
+  </form>
+
+  <ion-card   style="border-radius: 10px; background-color: #F5F5F5">
+    <ion-card-header no-padding>
+      <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear small color="primary" [disabled]="!validateForm.form.valid" (click)="pickDtaFinal()" icon-start>
+            <ion-icon name='search' style="font-size: 30px"></ion-icon>
+            Pesquisar
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="primary" (click)="removeSelection()" icon-start>
+            <ion-icon name='share-alt' style="font-size: 30px"></ion-icon>
+            Limpar
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content no-padding>
+      <ion-list>
+        <ion-item>
+          <ion-label><ion-icon name='calendar' item-start style="color: #3091b7; font-size: 20px" no-padding></ion-icon>{{somatotal}}</ion-label>
+          <ion-datetime displayFormat="MMM/YYYY" doneText="Incluir" cancelText="Cancelar" [(ngModel)]="dtaRelatorio"
+                        monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card  style="border-radius: 10px">
+
+    <ion-card-content *ngFor="let item of relqtdeAlunos" class="card-content-ebd-md">
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">{{ item.classe}}</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{item.alunos}}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

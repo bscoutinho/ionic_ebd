@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Detalhes da Professor</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+  <ion-card  style="border-radius: 10px">
+
+    <!--<img src="../../assets/img/banner_prof.jpg"/>-->
+    <img src="assets/img/banner_prof.jpg"/>
+
+    <ion-card-content >
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Nome:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.nome }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='calendar' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Data:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{professor.data}}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='call' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Telefone:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.telefone }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='phone-portrait' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Celular:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.celular }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='mail' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Email:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.email }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='body' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Cargo:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.cargo }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='locate' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Endereço:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ professor.endereco }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!--<ion-list>
+    <ion-item><p>Nome: </p>{{professor.nome}}</ion-item>
+    <ion-item><p>Celular: </p>{{professor.celular}}</ion-item>
+    <ion-item><p>Aniversário: </p>{{professor.aniversario}}</ion-item>
+  </ion-list>-->
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="editarProfessor()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

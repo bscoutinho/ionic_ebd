@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalhes da Classe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item><p>Descrição: </p>{{classe.descricao}}</ion-item>
+
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="editarClasse()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

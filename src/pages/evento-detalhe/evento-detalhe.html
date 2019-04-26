@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Detalhes do Evento</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+  <ion-card  style="border-radius: 10px">
+
+    <!--<img src="../../assets/img/banner_prof.jpg"/>-->
+    <img src="assets/img/banner_calendar.jpg"/>
+
+    <ion-card-content >
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='bookmarks' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Título:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{ evento.titulo }}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <ion-item no-padding>
+            <ion-icon name='calendar' item-start style="color: #3091b7; font-size: 30px"></ion-icon>
+            <ion-label style="font-size: 20px">Data:</ion-label>
+            <ion-badge item-end style="font-size: 20px">{{evento.data}}</ion-badge>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="editarEvento()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

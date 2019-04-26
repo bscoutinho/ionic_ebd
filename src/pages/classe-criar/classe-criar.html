@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Criar nova classe</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="classe.descricao" name="dia">
+  </form>
+
+  <ion-card class="item-background">
+    <ion-item >
+      <ion-label><ion-icon name='school' item-start style="color: #3091b7;"></ion-icon>Descrição:</ion-label>
+      <ion-input type="text" [(ngModel)]="classe.descricao"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled]="!validateForm.form.valid" (click)="salvarClasse(); showToast('top', 'Classe criada')"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>

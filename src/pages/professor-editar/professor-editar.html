@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Editar professor</span></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="removerProfessor(); showToast('top', 'Professor excluído')">
+        <ion-icon name="md-trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="professor.nome" name="classe">
+    <input type="text" required [(ngModel)]="dtaProfessor" name="aniversario">
+    <input type="text" required [(ngModel)]="professor.telefone" name="celular">
+    <input type="text" required [(ngModel)]="professor.celular" name="celular">
+    <input type="text" required [(ngModel)]="professor.email" name="celular">
+    <input type="text" required [(ngModel)]="professor.cargo" name="celular">
+    <input type="text" required [(ngModel)]="professor.endereco" name="celular">
+  </form>
+
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='person' item-start style="color: #3091b7;"></ion-icon>Nome:</ion-label>
+      <ion-input type="text" [(ngModel)]="professor.nome"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item>
+      <ion-label><ion-icon name='calendar' item-start style="color: #3091b7; font-size: 20px" no-padding></ion-icon>Data:</ion-label>
+      <ion-datetime displayFormat="DD/MMM/YYYY" doneText="Incluir" cancelText="Cancelar" [(ngModel)]="dtaProfessor"
+                    monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"></ion-datetime>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='call' item-start style="color: #3091b7;"></ion-icon>Telefone:</ion-label>
+      <ion-input type="number" [(ngModel)]="professor.telefone"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='phone-portrait' item-start style="color: #3091b7;"></ion-icon>Celular:</ion-label>
+      <ion-input type="number" [(ngModel)]="professor.celular"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='mail' item-start style="color: #3091b7;"></ion-icon>Email:</ion-label>
+      <ion-input type="number" [(ngModel)]="professor.email"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='body' item-start style="color: #3091b7;"></ion-icon>Cargo:</ion-label>
+      <ion-input type="number" [(ngModel)]="professor.cargo"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item >
+      <ion-label><ion-icon name='locate' item-start style="color: #3091b7;"></ion-icon>Endereço:</ion-label>
+      <ion-input type="number" [(ngModel)]="professor.endereco"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled]="!validateForm.form.valid" (click)="atualizarProfessor(); showToast('top', 'Alterações salvas')"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

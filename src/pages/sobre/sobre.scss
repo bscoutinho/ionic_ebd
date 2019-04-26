@@ -1,0 +1,62 @@
+page-sobre {
+
+  $BACK_TOP: #ffffff;
+  $BACK_BOTTOM: #f5f5f5;
+  $BACK_TRANSPARENCY: rgba(255,255,255,0.4);
+
+  .scroll-content {
+    background-color: #F5F5F5;
+    background-repeat: repeat-x;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .titulo {
+    font-size: 1.5em;
+  }
+
+  .titulo2 {
+    font-size: 1.2em;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  ion-item {
+    border-radius: 30px !important;
+    padding-left: 10px !important;
+    background-color: #f6f6f6;
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+
+  ion-list {
+    margin: 0;
+  }
+
+  .login-button {
+    width: 100%;
+    border-radius: 30px;
+    font-size: 1.2em;
+    border: 1px solid #fff;
+    background-color: #39acdc;
+  }
+
+  .imglogin {
+    max-height: 80px;
+    max-width: 80px;
+  }
+
+  .hidden {
+    display: none!important;
+  }
+
+}

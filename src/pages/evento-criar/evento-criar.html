@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span text-color="colortitle">Criar novo evento</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="master">
+  <form (ngSubmit)="onSubmit()" #validateForm="ngForm" class="hidden">
+    <input type="text" required [(ngModel)]="evento.titulo" name="classe">
+    <input type="text" required [(ngModel)]="dtaEvento" name="celular">
+  </form>
+
+  <ion-card class="item-background" >
+
+    <ion-item >
+      <ion-label><ion-icon name='person' item-start style="color: #3091b7;"></ion-icon>Título:</ion-label>
+      <ion-input type="text" [(ngModel)]="evento.titulo"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="item-background" >
+    <ion-item>
+      <ion-label><ion-icon name='calendar' item-start style="color: #3091b7; font-size: 20px" no-padding></ion-icon>Data:</ion-label>
+      <ion-datetime displayFormat="DD/MMM/YYYY" doneText="Incluir" cancelText="Cancelar" max="2030-10-31" [(ngModel)]="dtaEvento"
+                    monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"></ion-datetime>
+    </ion-item>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled]="!validateForm.form.valid" (click)="salvarEvento(); showToast('top', 'Evento criado')"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>
